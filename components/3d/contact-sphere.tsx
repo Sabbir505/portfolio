@@ -82,7 +82,7 @@ export function ContactSphere() {
       </mesh>
       
       {/* Small orbiting objects */}
-      <group rotation={[0, state => state.clock.elapsedTime * 0.5, 0]}>
+      <group rotation-y={useFrame((state) => state.clock.elapsedTime * 0.5)}>
         <mesh position={[3, 0, 0]}>
           <dodecahedronGeometry args={[0.2, 0]} />
           <meshStandardMaterial 
@@ -93,7 +93,7 @@ export function ContactSphere() {
         </mesh>
       </group>
       
-      <group rotation={[0, state => -state.clock.elapsedTime * 0.3, 0]}>
+      <group rotation-y={useFrame((state) => -state.clock.elapsedTime * 0.3)}>
         <mesh position={[-3.2, 1, 0]}>
           <icosahedronGeometry args={[0.15, 0]} />
           <meshStandardMaterial 
